@@ -61,6 +61,13 @@ class forest:
                 elif old_automaton_array[row][column] == 2:
                     self.automaton_array[row][column] = 0
 
+    def count_states(self):
+        alive = np.sum(self.automaton_array == 1)
+        burning = np.sum(self.automaton_array == 2)
+        dead = np.sum(self.automaton_array == 0)
+        total = self.automaton_array.size
+        return alive, burning, dead, total
+
     def __str__(self):
         """
         :return: string representation of the current state of the 2D (numpy) self.automaton_array
